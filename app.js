@@ -53,14 +53,14 @@ var port = process.env.PORT || 5000;
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET))
-app.use(cors());
+// app.use(cors());
 app.use(express.static('public'))
 
 
-// app.use(cors({
-//     // origin: 'http://127.0.0.1:5500', //Chan tat ca cac domain khac ngoai domain nay
-//     credentials: true //Để bật cookie HTTP qua CORS
-// }))
+app.use(cors({
+    // origin: 'http://127.0.0.1:5500', //Chan tat ca cac domain khac ngoai domain nay
+    credentials: true //Để bật cookie HTTP qua CORS
+}))
 
 
 app.get('/', function (req, res) {
