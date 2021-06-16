@@ -59,13 +59,13 @@ controller.login = async (req, res) => {
 
 
                     res.cookie('access_token', accessToken, {
-                        maxAge: 7*3600*1000,
+                        maxAge: 1000*7*3600*1000,
                         httpOnly: true,
                         //secure: true;
                     })
 
                     res.cookie('refresh_token', accessToken, {
-                        maxAge: 7*60*3600*1000,
+                        maxAge: 1000*7*60*3600*1000,
                         httpOnly: true,
                         //secure: true;
                     })
@@ -129,7 +129,7 @@ controller.refreshToken = async (req, res) => {
         const accessToken = await jwtMethod.generateToken(payloadUser, acesssSecretKey, accessTokenLife)
 
         res.cookie('access_token', accessToken, {
-            maxAge: 60 * 24 * 60 * 60,
+            maxAge: 1000*60 * 24 * 60 * 60,
             httpOnly: true,
             //secure: true;
         })
@@ -224,13 +224,13 @@ controller.loginAdmin = async (req, res) => {
 
 
         res.cookie('access_token', accessToken, {
-            maxAge: 60 * 24 * 60 * 600,
+            maxAge: 1000*60 * 24 * 60 * 600,
             httpOnly: true,
             //secure: true;
         })
 
         res.cookie('refresh_token', accessToken, {
-            maxAge: 60 * 24 * 60 * 600,
+            maxAge: 1000*60 * 24 * 60 * 600,
             httpOnly: true,
             //secure: true;
         })

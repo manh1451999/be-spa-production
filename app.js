@@ -57,14 +57,18 @@ app.use(cors());
 app.use(express.static('public'))
 
 
-app.use(cors({
-    // origin: 'http://127.0.0.1:5500', //Chan tat ca cac domain khac ngoai domain nay
-    credentials: true //Để bật cookie HTTP qua CORS
-}))
+// app.use(cors({
+//     // origin: 'http://127.0.0.1:5500', //Chan tat ca cac domain khac ngoai domain nay
+//     credentials: true //Để bật cookie HTTP qua CORS
+// }))
 
 
 app.get('/', function (req, res) {
-    res.json("Đây là server của thực tập rikkeisoft")
+    res.json("Đây là server greenspa")
+})
+
+app.get('/test-cookie', function (req, res) {
+    res.send("cookie là " + req.cookies.access_token)
 })
 
 app.use('/auth', authRouters);
